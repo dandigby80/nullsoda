@@ -4,8 +4,8 @@ print('\n~ Scanwave ~ ping the void ~\n')
 
 # scanning function
 def ping_ip(ip):
-        result = subprocess.run([f'ping -c 1 {ip}'], shell=True, capture_output=True, text=True)
-        return result.returncode
+    result = subprocess.run([f'ping -c 1 {ip}'], shell=True, capture_output=True, text=True)
+    return result.returncode
 
 # Ask user if they want to scan a single ip or a range
 print('''Would you like to scan a single IP address or a range of IP addresses?: (s)ingle,
