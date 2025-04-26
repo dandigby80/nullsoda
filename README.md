@@ -7,7 +7,7 @@ No corporations. No ads. Just code, caffeine and curiosity.
 
 ## Current Tools
 
-- **Scanwave** - A lightweight network scanner, starting simple and evolving iver time.
+- **Scanwave** - A lightweight network scanner, starting simple and evolving over time.
 
 (More tools coming soon... stay tuned!)
 
