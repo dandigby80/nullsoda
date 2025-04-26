@@ -1,0 +1,25 @@
+# NullSoda Cleanup Crew
+# Ignore the byte sludge
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual enclosures for our experiments
+venv/
+
+# Local IDE mind control files
+.vscode/
+
+# Ghosts of Mac past
+.DS_store
+
+# Haunted Windows thumbnails
+Thumbs.db
+
+# Error scrolls we don't need to remember
+*.log
+
+# Build artefacts from the void (future-proofing)
+build/
+dist/
+*.egg-info/
