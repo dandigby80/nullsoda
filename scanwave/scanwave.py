@@ -1,6 +1,8 @@
 import subprocess, sys
 
 print('\n~ ScanWave ~ ping the void ~\n')
+print('''Hey digital drifter - Only scan networks you own or have permissions to test.
+We\'re here to vibe, not mess with others\' spaces. Let's keep it chill.''')
 
 # Scanning function
 def ping_ip(ip):
@@ -28,7 +30,7 @@ def get_isp_range():
 Please try again.''')
 
 # Ask user if the want to scan a single IP or a range
-print('''Would you like to scan a single IP address or a range of IP addresses?: (s)ingle,
+print('''\nWould you like to scan a single IP address or a range of IP addresses?: (s)ingle,
 (r)ange''')
 single_range = input()
 
