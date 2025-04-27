@@ -5,6 +5,8 @@ Inspired by cyberpunk aesthtics, underground hacking scenes, and old-school hack
 
 No corporations. No ads. Just code, caffeine and curiosity.
 
+Remember though digital drifters, these tools are for experimenting on your own networks, we want to keep things chill and stay out of other peoples stuff!
+
 ## Current Tools
 
 - **Scanwave** - A lightweight network scanner, starting simple and evolving over time.
