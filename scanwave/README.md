@@ -7,6 +7,8 @@ Scanwave is a lightweight network scanner built as part of the NullSoda suite.
 A simple tool designed to scan networks, discover live hosts, and gradually evolve into a more powerful recon companion.  
 Built for learning, experimentation, and fun.
 
+Only scan networks you own or have permission to scan. Let's be chill and stay out of other peoples stuff.
+
 ## Features (current)
 
 - Basic ping sweep scanning
