@@ -9,6 +9,12 @@ def ping_ip(ip):
     result = subprocess.run([f'ping -c 1 {ip}'], shell=True, capture_output=True, text=True)
     return result.returncode
 
+# Save data to file function
+def drop_to_disk(data, fileName):
+    subprocess.run([f'touch', fileName], capture_output=True, text=True)
+    with open(fileName, 'w') as f:
+        f.write(data)
+
 # Function to ask user for ISP range and validate input
 def get_isp_range():
     while True:
