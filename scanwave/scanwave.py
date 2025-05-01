@@ -48,6 +48,21 @@ if single_range == 's':
     if ping_ip(target) == 0:
         print('\033[92mhost is UP\033[0m')
         print(result.stdout)
+        # Option to save to disk
+        print('Would you like to save the result to disk? (y)es or (n)o.')
+        while True:
+            save = input()
+            if save == 'y':
+                print('Please enter a file name: ')
+                filename = input() or f'scanwave-{target}'
+                drop_to_disk(result.stdout, filename)
+                print(f'File saved to disk: {filename}.')
+                sys.exit()
+            elif save == 'n':
+                print('Goodbye.')
+                sys.exit()
+            else:
+                print('Not a valid choice - choose (y) or (n)')
     else:
         print('\033[91mhost id DOWN\033[0m')
         print(result.stderr)
