@@ -9,6 +9,12 @@ def ping_ip(ip):
     result = subprocess.run([f'ping -c 1 {ip}'], shell=True, capture_output=True, text=True)
     return result.returncode
 
+# Save data to file function
+def drop_to_disk(data, fileName):
+    subprocess.run([f'touch', fileName], capture_output=True, text=True)
+    with open(fileName, 'w') as f:
+        f.write(data)
+
 # Function to ask user for ISP range and validate input
 def get_isp_range():
     while True:
@@ -42,6 +48,21 @@ if single_range == 's':
     if ping_ip(target) == 0:
         print('\033[92mhost is UP\033[0m')
         print(result.stdout)
+        # Option to save to disk
+        print('Would you like to save the result to disk? (y)es or (n)o.')
+        while True:
+            save = input()
+            if save == 'y':
+                print('Please enter a file name: ')
+                filename = input() or f'scanwave-{target}'
+                drop_to_disk(result.stdout, filename)
+                print(f'File saved to disk: {filename}.')
+                sys.exit()
+            elif save == 'n':
+                print('Goodbye.')
+                sys.exit()
+            else:
+                print('Not a valid choice - choose (y) or (n)')
     else:
         print('\033[91mhost id DOWN\033[0m')
         print(result.stderr)
@@ -52,14 +73,32 @@ elif single_range == 'r':
     base_ip = '.'.join(start_isp.split('.')[:-1])
     start_octet = int(start_isp.split('.')[-1])
     end_octet = int(end_isp.split('.')[-1])
+    range_dict = {}
     
     for i in range(start_octet, end_octet +1):
         ip = f'{base_ip}.{i}'
         print(f'Pinging {ip}...')
         if ping_ip(ip) == 0:
             print(f'{ip} is UP')
+            range_dict[ip] = 'UP'
         else:
             print(f'{ip} is DOWN')
+            range_dict[ip] = 'DOWN'
+    print('\nWould you like to save the result to disk? (y)es or (n)o.')
+    while True:
+        save = input()
+        if save == 'y':
+            print('Please enter a file name: ')
+            filename = input() or f'scanwave-{start_isp}-{end_isp}.txt'
+            drop_to_disk(str(range_dict), filename)
+            print(f'File saved to disk: {filename}.')
+            sys.exit()
+        elif save == 'n':
+            print('Goodbye.')
+            sys.exit()
+        else:
+            print('Not a valid choice - choose (y) or (n)')
+        
 else:
     print('Not a valid choice')
     sys.exit()
